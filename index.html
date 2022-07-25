@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <title></title>
+            <!-- viewport -->
+            <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+            <!-- Meta region -->
+            <meta charset="UTF-8">
+            <meta name="Geography" content="France">
+            <meta name="Content-Language" content="fr">
+            <!-- signature -->
+            <meta name="Copyright" content="Devynck nicolas">
+            <meta name="Author" content="Devynck nicolas">
+            <!-- Jquery-->
+            <link rel="stylesheet" type="text/css" href="jquery/jquery.mobile-1.4.5.min.css">
+            <link rel="stylesheet" type="text/css" href="jquery/mybook.min.css">
+            <script src="jquery/jquery-1.11.1.min.js"></script>
+            <script src="jquery/jquery.mobile-1.4.5.min.js"></script>
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="files/css.css">
+            <link rel="icon" type="image/png" href="files/favicon.ico" />
+        </head>
+        <body>
+            <!-- home -->
+            <div id="home" data-role="page">
+                <div data-role="header">
+                    <h1>MyCook</h1>
+                </div>
+                <div data-role="content">
+                    <img src="files/logo.png" alt="logo" class="logo">
+                </div>
+                <div data-role="footer" data-position="fixed">
+                    <div data-role="navbar" data-iconpos="bottom">
+                        <ul>
+                            <li><a href="#fiche" data-role="button" data-icon="grid" data-transition="slideup" data-theme="b">Fiche technique</a></li>
+                            <li><a href="#outis" data-role="button" data-icon="star" data-transition="slideup" data-theme="b">Outis</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Fiche technique -->
+            <div id="fiche" data-role="page">
+                <div data-role="header">
+                    <a href="#home" data-icon="home" data-transition="flip" data-theme="b">Accueil</a>
+                    <h1>Fiches technique</h1>
+                    <a href="#" data-rel="back" data-icon="back" data-theme="b">Retour</a>
+                </div>
+                <div data-role="content">
+                    <a href="#popup-nouvelle-fiche" data-role="button" data-rel="dialog" data-transition="pop" data-icon="plus" data-theme="b">Nouvelle fiche technique</a>
+                    <ul id="liste-fiche"></ul>
+                </div>
+                <div data-role="footer" data-position="fixed">
+                    <div data-role="navbar" data-iconpos="bottom">
+                        <ul>
+                            <li><a href="#fiche" class="ui-btn-active ui-state-persist" data-role="button" data-icon="grid" data-transition="slideup" data-theme="b">Fiche technique</a></li>
+                            <li><a href="#outis" data-role="button" data-icon="star" data-transition="slideup" data-theme="b">Outis</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Page outis -->
+            <div id="outis" data-role="page">
+                <div data-role="header">
+                    <a href="#home" data-icon="home" data-transition="flip" data-theme="b">Accueil</a>
+                    <h1>Outis</h1>
+                    <a href="#" data-rel="back" data-icon="back" data-theme="b">Retour</a>
+                </div>
+                <div data-role="content">
+                    <p>content</p>
+                    <button id="" data-icon="cloud" data-theme="c">Sauvgarde des donné</button>
+                </div>
+                <div data-role="footer" data-position="fixed">
+                    <div data-role="navbar" data-iconpos="bottom">
+                        <ul>
+                            <li><a href="#fiche" data-role="button" data-icon="grid" data-transition="slideup" data-theme="b">Fiche technique</a></li>
+                            <li><a href="#outis" class="ui-btn-active ui-state-persist" data-role="button" data-icon="star" data-transition="slideup" data-theme="b">Outis</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- hide page -->
+            <!-- Nouvelle fiche technique -->
+            <div id="popup-nouvelle-fiche" data-role="page">
+                <div data-role="header">
+                    <h2>Nouvelle fiche technique</h2>
+                </div>
+                <div data-role="content">
+                    <fieldset>
+                        <legend><h2>Nom de votre nouvelle fiche :</h2></legend>
+                        <input id="popup-nouvelle-fiche-txt" type="text" placeholder="Ex : Panna cotta">
+                    </fieldset>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a"><a href="#" data-role="button" data-rel="back" data-icon="delete">Annuler</a></div>
+                        <div class="ui-block-b"><a href="#" id="popup-nouvelle-fiche-submit" data-role="button" data-rel="back" data-icon="check" data-theme="b">Ok</a></div>
+                    </div>
+                </div>
+            </div>
+            <!-- detail fiche technique -->
+            <div id="detail" data-role="page">
+                <div data-role="header">
+                    <a href="#home" data-icon="home" data-transition="flip" data-theme="b">Accueil</a>
+                    <h1></h1>
+                    <a href="#" data-rel="back" data-icon="back" data-theme="b">Retour</a>
+                </div>
+                <div data-role="content">
+                    <a href="#popup-edit-fiche" data-role="button" data-rel="dialog" data-transition="pop" data-icon="edit" data-theme="b">Modifer</a>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a"><label for="pieces"><h2>Pièces :</h2></label></div>
+                        <div class="ui-block-b"><input type="text" name="pieces" id="pieces" value="10" /></div>
+                    </div>
+                    <h2>Description :</h2>
+                    <div id="description" class="ui-body ui-body-a ui-corner-all"></div>
+                    <h2>Ingrédients :</h2>
+                    <div id="ingredients" class="ui-grid-b ui-body ui-body-a ui-corner-all">
+                        <div class="ui-block-a">Produits :</div><div class="ui-block-b">Quantité :</div><div class="ui-block-c">Mesure :</div>
+                        <div id="produits" class="ui-block-a"></div><div id="quantite" class="ui-block-b"></div><div id="mesure" class="ui-block-c"></div>
+                    </div>
+                    <h2>Préparation :</h2>
+                    <div id="preparation" class="ui-body ui-body-a ui-corner-all"></div>
+                </div>
+                <div data-role="footer" data-position="fixed">
+                    <div data-role="navbar" data-iconpos="bottom">
+                        <ul>
+                            <li><a href="#fiche" class="ui-btn-active ui-state-persist" data-role="button" data-icon="grid" data-transition="slideup" data-theme="b">Fiche technique</a></li>
+                            <li><a href="#outis" data-role="button" data-icon="star" data-transition="slideup" data-theme="b">Outis</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="popup-edit-fiche" data-role="page">
+                <div data-role="header">
+                    <h2>Modifer de la fiche</h2>
+                </div>
+                <div data-role="content">
+                    <fieldset>
+                        <legend><h2>Nom de votre fiche technique :</h2></legend>
+                        <input id="popup-edit-fiche-nom" type="text">
+                    </fieldset>
+                    <fieldset>
+                        <legend><h2>Description :</h2></legend>
+                        <input id="popup-edit-fiche-description" type="text">
+                    </fieldset>
+                    <fieldset>
+                        <legend><h2>Ingrédients :</h2></legend>
+                        <a href="#" id="popup-add-ingredients"  data-role="button" data-icon="plus" data-theme="b">Ajouté un ingrédients</a>
+                        <div class="ui-grid-b ui-grid-b ui-body ui-body-a ui-corner-all">
+                            <div class="ui-block-a">Produits :</div><div class="ui-block-b">Quantité :</div><div class="ui-block-c">Mesure :</div>
+                            <div id="popup-edit-produits" class="ui-block-a"></div><div id="popup-edit-quantite" class="ui-block-b"></div><div id="popup-edit-mesure" class="ui-block-c"></div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend><h2>Préparation :</h2></legend>
+                        <textarea id="popup-edit-fiche-preparation"></textarea>
+                    </fieldset>
+                    <a href="#popup-nouvelle-fiche" data-role="button" data-rel="dialog" data-transition="pop" data-icon="alert" data-theme="c">Suprimer le fiche technique</a>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a"><a href="#" data-role="button" data-rel="back" data-icon="delete">Annuler</a></div>
+                        <div class="ui-block-b"><a href="#" id="popup-nouvelle-fiche-submit" data-role="button" data-rel="back" data-icon="check" data-theme="b">Ok</a></div>
+                    </div>
+                </div>
+            </div>
+        <script src="files/index.js"></script> 
+    </body>
+</html>

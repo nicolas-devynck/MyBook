@@ -173,6 +173,18 @@ $(document).ready(function () {
                     }
                     $("#popup-edit-produits").html("");
                     $("#popup-edit-produits").html(editProduit);
+                    $("#delet-fiche").click(function () {
+                        localStorage.removeItem(detail.nom);
+                        for (var i = 0; i < key.length; i++) {
+                            if (key[i] == detail.nom) {
+                                $("#"+key[i]).remove();
+                                key.splice(i,1);
+                            }
+                        }
+                        localStorage.setItem("key", JSON.stringify(key));
+                        $("#popup-edit-fiche").dialog("close");
+                        $.mobile.back();
+                    });
                 });
             }
         }
@@ -286,6 +298,18 @@ $(document).ready(function () {
             }
             $("#popup-edit-produits").html("");
             $("#popup-edit-produits").html(editProduit);
+            $("#delet-fiche").click(function () {
+                localStorage.removeItem(detail.nom);
+                for (var i = 0; i < key.length; i++) {
+                    if (key[i] == detail.nom) {
+                        $("#"+key[i]).remove();
+                        key.splice(i,1);
+                    }
+                }
+                localStorage.setItem("key", JSON.stringify(key));
+                $("#popup-edit-fiche").dialog("close");
+                $.mobile.back();
+            });
         });
     }
     $("#popup-add-ingredients").click(function () {

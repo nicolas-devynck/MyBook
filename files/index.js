@@ -181,9 +181,14 @@ $(document).ready(function () {
                                 key.splice(i,1);
                             }
                         }
-                        localStorage.setItem("key", JSON.stringify(key));
-                        $("#popup-edit-fiche").dialog("close");
-                        $.mobile.back();
+                        if (key.length == 0) {
+                            localStorage.clear();
+                           // $("#liste-fiche").html("Null");
+                        }
+                        else {
+                            localStorage.setItem("key", JSON.stringify(key));
+                        }
+                        $.mobile.navigate("#fiche", {transition: "slidedown"});
                     });
                 });
             }
@@ -306,11 +311,17 @@ $(document).ready(function () {
                         key.splice(i,1);
                     }
                 }
-                localStorage.setItem("key", JSON.stringify(key));
-                $("#popup-edit-fiche").dialog("close");
-                $.mobile.back();
+                if (key.length == 0) {
+                    localStorage.clear();
+                   // $("#liste-fiche").html("Null");
+                }
+                else {
+                    localStorage.setItem("key", JSON.stringify(key));
+                }
+                $.mobile.navigate("#fiche", {transition: "slidedown"});
             });
         });
+
     }
     $("#popup-add-ingredients").click(function () {
         $("#popup-edit-mesure").append("<div class='ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset'><input value='null' type='text'></div>");
